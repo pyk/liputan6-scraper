@@ -30,6 +30,8 @@ func main() {
 		fmt.Printf("maximum page is not specied. default value %d is used.\n", DEFAULT_MAX_PAGE)
 	}
 
+	// prepare for id regex
+	idRegex := regexp.MustCompile(`\d{6,7}`)
 	// create sanitizer
 	sanitizer := bluemonday.StrictPolicy()
 	for i := 1; i <= maxPage; i++ {
@@ -50,7 +52,6 @@ func main() {
 			}
 
 			// get article id from URL
-			idRegex := regexp.MustCompile(`\d{7}`)
 			articleID := idRegex.FindString(articleURL)
 			if articleID == "" {
 				fmt.Printf("error: article id not found in %s\n", articleURL)
