@@ -1,4 +1,4 @@
-This simple go program will scrape all article from 
+This simple go program will scrape all articles from 
 [liputan6](http://www.liputan6.com).
 
 ## Setup & Usage
